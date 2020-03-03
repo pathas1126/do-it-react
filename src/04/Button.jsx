@@ -21,12 +21,14 @@ class Button extends PureComponent {
         {...css(
           styles.default,
           xsmall && styles.xsmall,
+          small && styles.small,
           large && styles.large,
           xlarge && styles.xlarge,
           secondary && styles.secondary,
           primary && styles.primary,
         )}
         onClick={onPress}
+        disabled={disabled}
       >
         {children}
       </button>
