@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 class LoadingProvider extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      loading: false,
-    };
+
+    this.state = { loading: false };
     this.setLoading = this.setLoading.bind(this);
   }
 
@@ -26,7 +25,7 @@ class LoadingProvider extends Component {
   }
 }
 
-LoadingProvider.childContextType = {
+LoadingProvider.childContextTypes = {
   loading: PropTypes.bool,
   setLoading: PropTypes.func,
 };

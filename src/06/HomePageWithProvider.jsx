@@ -19,7 +19,6 @@ function TableComponent() {
     </table>
   );
 }
-
 class HomePageComponent extends PureComponent {
   render() {
     return (
