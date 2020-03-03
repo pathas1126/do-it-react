@@ -1,8 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { PageWithLoadData } from '../05/lifecycle';
+import { PageWithLoadData, PageWithLoadDataAndLoading } from '../05/lifecycle';
 
-storiesOf('Lifecycle', module).addWithJSX('loadData', () => (
-  <PageWithLoadData loadData={() => fetch('/').then(() => 'hello')} />
-));
+storiesOf('Lifecycle', module)
+  .addWithJSX('loadData', () => (
+    <PageWithLoadData loadData={() => fetch('/').then(() => 'hello')} />
+  ))
+  .addWithJSX('Loading Message', () => (
+    <PageWithLoadDataAndLoading loadData={() => fetch('/').then(() => 'hello')} />
+  ));
