@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import ReduxApp01 from '../07/ReduxApp01';
+import AdvReduxApp from '../07/AdvReduxApp08';
 
-storiesOf('ReduxApp01', module).addWithJSX('Default Settings', () => <ReduxApp01 />);
+storiesOf('AdvReduxApp', module).addWithJSX('Default Settings', () => <AdvReduxApp />);
