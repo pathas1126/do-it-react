@@ -7,6 +7,12 @@ import Button from '../04/Button';
 import ButtonWithModal from '../06/ButtonWithModal';
 import ModalProvider, { Consumer } from '../06/ModalProvider';
 
+import ModalProviderWithKey, {
+  CONFIRM_DELETE_MODAL,
+  CREATE_MEMBER_MODAL,
+} from '../06/ModalProviderWithKey';
+import { Consumer as ModalConsumer } from '../06/ModalContext';
+
 storiesOf('Modal', module)
   .addWithJSX('Default Settings', () => (
     <Modal>
@@ -25,4 +31,35 @@ storiesOf('Modal', module)
         <Consumer>{({ openModal }) => <Button onPress={() => openModal()}>삭제</Button>}</Consumer>
       </div>
     </ModalProvider>
+  ))
+  .addWithJSX('ModalWithKey', () => (
+    <ModalProviderWithKey>
+      <div>
+        <Text>다음 버튼을 눌러 모달 실행</Text>
+        <ModalConsumer>
+          {({ openModal }) => (
+            <Button onPress={() => openModal(CONFIRM_DELETE_MODAL)}>모달 열기</Button>
+          )}
+        </ModalConsumer>
+      </div>
+    </ModalProviderWithKey>
+  ))
+  .addWithJSX('CreateMemberModal', () => (
+    <ModalProviderWithKey>
+      <div>
+        <Text>다음 버튼 눌러 모달 실행</Text>
+        <ModalConsumer>
+          {({ openModal }) => (
+            <Button onPress={() => openModal(CONFIRM_DELETE_MODAL, { id: 1, name: '상품1' })}>
+              모달 열기
+            </Button>
+          )}
+        </ModalConsumer>
+        <ModalConsumer>
+          {({ openModal }) => (
+            <Button onPress={() => openModal(CREATE_MEMBER_MODAL)}>회원 가입</Button>
+          )}
+        </ModalConsumer>
+      </div>
+    </ModalProviderWithKey>
   ));
